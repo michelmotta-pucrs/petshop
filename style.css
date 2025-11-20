@@ -16,11 +16,18 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 /* Muda a cor de todo o texto do body e coloca a fonte do projeto */
 body {
     font-family: 'Source Sans Pro', sans-serif;
     color: var(--main-text-color);
     background-color: var(--main-bg-color);
+    display: flex;
+    flex-direction: column;
 }
 
 /* Estilizando o topo da página */
@@ -91,6 +98,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: auto;
 }
 
 footer a {
