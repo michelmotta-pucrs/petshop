@@ -25,6 +25,10 @@
 
             setInterval(nextSlide, 3000);
         });
+
+        function irParaPagina() {
+            window.location.href = "agendamento.html";
+        }
     </script>
 
 
@@ -46,7 +50,7 @@
         <div class="slides">
             <div class="slide">Promoção 1 — Banho 20% OFF</div>
             <div class="slide">Promoção 2 — Tosa grátis na 3ª visita</div>
-            <div class="slide">Promoção 3 — Tosa com transporte sem custo</div>
+            <div class="slide">Promoção 3 — Banho e Tosa com transporte sem custo</div>
         </div>
     </div>
 
@@ -100,11 +104,13 @@
         <section>
             <h4>Tosa</h4>
             <p>R$ 80,00</p>
+            <button onclick="irParaPagina()">Contratar</button>
             <h4>Tosa + Transporte</h4>
             <div class="promo-div">
                 <p class="promo-old">R$ 100,00</p>
                 <p class="promo">R$ 80,00</p>
             </div>
+            <button onclick="irParaPagina()">Contratar</button>
         </section>
 
 
@@ -114,8 +120,10 @@
                 <p class="promo-old">R$ 50,00</p>
                 <p class="promo">R$ 40,00</p>
             </div>
+            <button onclick="irParaPagina()">Contratar</button>
             <h4>Banho + Transporte</h4>
             <p>R$ 70,00</p>
+            <button onclick="irParaPagina()">Contratar</button>
         </section>
     </article>
 

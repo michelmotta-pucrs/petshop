@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Agendamento - Petshop</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Petshop Bom pra Cachorro</h1>
+        <h2>Agendamento de Serviços</h2>
+    </header>
+
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="acessorios.html">Acessórios</a>
+        <a href="racoes.html">Rações</a>
+        <a href="higiene.html">Higiene e Limpeza</a>
+        <a href="servicos.html">Serviços</a>
+    </nav>
+
+    <form id="formAgendamento" class="cadastro">
+
+        <h2>Agendar Serviço</h2>
+
+        <label>Nome do cliente</label>
+        <input type="text" name="nomeCliente" placeholder="Nome completo" required>
+
+        <label>Telefone</label>
+        <input type="tel" name="telefone" placeholder="(21) 99999-9999" required>
+
+        <label>Nome do Pet</label>
+        <input type="text" name="nomePet" placeholder="Nome do pet" required>
+
+        <label>Raça</label>
+        <input type="text" name="raca" placeholder="Raça do pet" required>
+
+        <h3>Serviço desejado</h3>
+
+        <div class="servico">
+            <label>
+                <input type="checkbox" id="servBanho"> Banho - R$40
+            </label>
+
+            <label>
+                <input type="checkbox" id="servTosa"> Tosa - R$80
+            </label>
+        </div>
+
+        <h3>Transporte do Pet</h3>
+
+        <div class="servico">
+            <label>
+                <input type="radio" name="transporte" id="transporte" required>
+                Tele-busca - R$20
+            </label>
+
+            <label>
+                <input type="radio" name="transporte" id="entrega">
+                Entrega no local (grátis)
+            </label>
+        </div>
+
+        <h3>Agendamento</h3>
+
+        <label>Data</label>
+        <input type="date" name="data" required>
+
+        <label>Horário</label>
+        <input type="time" name="hora" required>
+
+        <h3>Total:</h3>
+        <p class="preco" id="precoTotal" style="font-size: 1.3rem; font-weight: bold;">R$ 0,00</p>
+
+        <h3>Pagamento</h3>
+        <div class="servico">
+            <label><input type="radio" name="pagamento" value="pix" required> Pix</label>
+            <label><input type="radio" name="pagamento" value="dinheiro"> Dinheiro</label>
+        </div>
+
+        <button id="btnConfirmar" disabled>Confirmar</button>
+    </form>
+
+    <p id="msgSucesso" style="display:none; text-align:center; margin-top:1rem; font-weight:bold; color:green;">
+        Agendamento concluído com sucesso!
+    </p>
+
+    <script>
+        const servBanho = document.getElementById("servBanho");
+        const servTosa = document.getElementById("servTosa");
+        const transporte = document.getElementById("transporte");
+        const entrega = document.getElementById("entrega");
+
+        const form = document.getElementById("formAgendamento");
+        const btn = document.getElementById("btnConfirmar");
+        const msg = document.getElementById("msgSucesso");
+        const precoTotal = document.getElementById("precoTotal");
+
+        function calcularPreco() {
+            let total = 0;
+
+            const banho = servBanho.checked;
+            const tosa = servTosa.checked;
+            const transp = transporte.checked;
+
+            if (banho) total += 40;
+            if (tosa) total += 80;
+
+            if (transp && !(banho && tosa)) {
+                total += 20;
+            }
+
+            precoTotal.innerText = "R$ " + total.toFixed(2).replace(".", ",");
+            validarFormulario();
+        }
+
+        function validarFormulario() {
+            btn.disabled = !form.checkValidity();
+        }
+
+        form.addEventListener("input", validarFormulario);
+
+        servBanho.addEventListener("change", calcularPreco);
+        servTosa.addEventListener("change", calcularPreco);
+        transporte.addEventListener("change", calcularPreco);
+        entrega.addEventListener("change", calcularPreco);
+
+        btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            form.style.display = "none";
+            msg.style.display = "block";
+        });
+
+        calcularPreco();
+    </script>
+
+    <footer>
+        <h5>Entre em contato conosco:</h5>
+        <a href="tel:5522988888888">Tel: (21) 98888-8888</a>
+        <a href="mailto:petshopbompracachorro@mail.com">petshopbompracachorro@mail.com</a>
+        <a href="https://maps.app.goo.gl/739oW9W8fNVktzM39" target="_blank">Av. Brás de Pina, 331A - Penha, RJ</a>
+        <p>Criado por Michel Motta.</p>
+    </footer>
+</body>
+
+</html>
