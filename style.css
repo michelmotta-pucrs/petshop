@@ -1,20 +1,11 @@
 /* Usando variáveis para as principais cores do projeto */
 :root {
     --main-color: #FF8A5B;
-    /* Laranja suave, caloroso e acolhedor */
     --main-color-lighter: #FFC7B0;
-    /* Versão mais clara para hovers e fundos */
     --main-color-darker: #CC6C49;
-    /* Para botões fortes e elementos de destaque */
-
     --accent-color: #4DB6AC;
-    /* Verde água tranquilo, ótimo para CTAs */
-
     --main-text-color: #333333;
-    /* Texto principal, legível e neutro */
     --main-bg-color: #FFF8F3;
-    /* Fundo levemente creme, aconchegante */
-
 }
 
 /* Reset do CSS para melhor padronização entre os browsers */
@@ -62,4 +53,30 @@ nav a {
 nav a:hover {
     /* color: var(--accent-color); */
     text-decoration: underline;
+}
+
+h3 {
+    margin-left: 1rem;
+}
+
+article {
+    display: flex;
+    margin-left: 2rem;
+}
+
+section {
+    margin: 2rem;
+    border-radius: 1rem;
+    background-color: #FFF;
+    padding: 0.5rem;
+}
+
+section p {
+    font-size: large;
+    font-weight: bold;
+}
+
+h4 {
+    font-weight: 500;
+    margin: 1rem 0;
 }
