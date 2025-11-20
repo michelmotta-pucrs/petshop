@@ -1,0 +1,65 @@
+/* Usando variáveis para as principais cores do projeto */
+:root {
+    --main-color: #FF8A5B;
+    /* Laranja suave, caloroso e acolhedor */
+    --main-color-lighter: #FFC7B0;
+    /* Versão mais clara para hovers e fundos */
+    --main-color-darker: #CC6C49;
+    /* Para botões fortes e elementos de destaque */
+
+    --accent-color: #4DB6AC;
+    /* Verde água tranquilo, ótimo para CTAs */
+
+    --main-text-color: #333333;
+    /* Texto principal, legível e neutro */
+    --main-bg-color: #FFF8F3;
+    /* Fundo levemente creme, aconchegante */
+
+}
+
+/* Reset do CSS para melhor padronização entre os browsers */
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+/* Muda a cor de todo o texto do body e coloca a fonte do projeto */
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: var(--main-text-color);
+    background-color: var(--main-bg-color);
+}
+
+/* Estilizando o topo da página */
+header {
+    width: 100%;
+    height: 60px;
+
+    background-color: var(--main-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 1rem;
+}
+
+nav {
+    background-color: var(--main-color-lighter);
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--main-text-color);
+    padding: 0.25rem 1rem;
+}
+
+nav a:hover {
+    /* color: var(--accent-color); */
+    text-decoration: underline;
+}
