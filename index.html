@@ -12,6 +12,22 @@
         rel="stylesheet">
     </style>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let index = 0;
+            const slides = document.querySelector(".slides");
+            const total = document.querySelectorAll(".slide").length;
+
+            function nextSlide() {
+                index = (index + 1) % total;
+                slides.style.transform = `translateX(-${index * 100}%)`;
+            }
+
+            setInterval(nextSlide, 3000);
+        });
+    </script>
+
+
 <body>
     <header>
         <h1>Petshop Bom pra Cachorro</h1>
@@ -24,7 +40,16 @@
         <a href="higiene.html">Higiene e Limpeza</a>
         <a href="servicos.html">Serviços</a>
     </nav>
-    <br>
+    <h3>Promoções</h3>
+
+    <div class="carrossel">
+        <div class="slides">
+            <div class="slide">Promoção 1 — Banho 20% OFF</div>
+            <div class="slide">Promoção 2 — Tosa grátis na 3ª visita</div>
+            <div class="slide">Promoção 3 — Tosa com transporte sem custo</div>
+        </div>
+    </div>
+
     <h3>Acessórios</h3>
     <article>
         <section>
@@ -76,13 +101,19 @@
             <h4>Tosa</h4>
             <p>R$ 80,00</p>
             <h4>Tosa + Transporte</h4>
-            <p>R$ 100,00</p>
+            <div class="promo-div">
+                <p class="promo-old">R$ 100,00</p>
+                <p class="promo">R$ 80,00</p>
+            </div>
         </section>
 
 
         <section>
             <h4>Banho</h4>
-            <p>R$ 50,00</p>
+            <div class="promo-div">
+                <p class="promo-old">R$ 50,00</p>
+                <p class="promo">R$ 40,00</p>
+            </div>
             <h4>Banho + Transporte</h4>
             <p>R$ 70,00</p>
         </section>
